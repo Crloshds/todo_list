@@ -1,6 +1,6 @@
 <h1> Tarefas: </h1>
 
-<form method="POST" action="/">
+<form method="POST" action="">
 
     {% csrf_token %}
 
@@ -17,5 +17,6 @@
     <p> {{task}} </p>
     <br>
     <a href="{% url 'update-task' task.id %}"> Update </a>
+    <a href="{% url 'delete-task' task.id %}"> Delete </a>
     <br>
 {% endfor %}
