@@ -1,0 +1,21 @@
+<h1> Tarefas: </h1>
+
+<form method="POST" action="/">
+
+    {% csrf_token %}
+
+    {{form.title}}
+
+    <input class="btn" type="submit" name="Create Task">
+
+    {{ form.errors }}
+</form>
+
+
+{% for task in task_list %}
+
+    <p> {{task}} </p>
+    <br>
+    <a href="{% url 'update-task' task.id %}"> Update </a>
+    <br>
+{% endfor %}
