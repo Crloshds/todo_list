@@ -1,0 +1,23 @@
+<table>
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Criada</th>
+            <th>Concluída</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in task_list %}
+        <tr>
+            <td>{{ task.title }} </td>
+            <td>{{ task.created_at }} </td>
+            <td>{{ task.check_task|yesno:"Sim,Não" }}</td>
+            <td>
+                <a class="button" href="{% url 'update-task' task.id %}"> Editar </a>
+                <a class="button" href="{% url 'delete-task' task.id %}">Apagar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

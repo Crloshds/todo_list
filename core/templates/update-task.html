@@ -1,11 +1,31 @@
-<h1> Update Task </h1>
+{% load static %}
+<html lang="[pt-br]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Editar Tarefa</title>
+</head>
+<header>
+    <h1> Editar tarefa </h1>
+</header>
 
-<form method="POST" action="">
+<body>
+    <main>
+        <form method="POST" action="">
+    
+            {% csrf_token %}
+        
+            {{form}}
+        
+            <input class="button" type="submit" value="Atualizar">
+            <a class="button"  href="{% url 'index' %}">Cancelar</a> 
+        
+        </form>
+        
+        {% include 'task_table.html' %}
+        
+    </main>
+</body>
 
-    {% csrf_token %}
-
-    {{form}}
-
-    <input class="btn" type="submit" value="Update Task">
-
-</form>
+</html>
