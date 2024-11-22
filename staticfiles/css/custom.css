@@ -1,0 +1,39 @@
+/* Define variáveis para o botão vermelho */
+.red-button {
+    --accent: #ff0000; /* Cor de destaque vermelha */
+    --accent-hover: #cc0000; /* Cor de destaque vermelha mais escura para hover */
+    --accent-text: #ffffff; /* Cor do texto em branco */
+  }
+  
+  /* Aplica o estilo a um botão vermelho */
+  .red-button,
+  .red-button:where(:enabled):hover,
+  .red-button:not([aria-disabled="true"]):hover,
+  .red-button:where(:enabled):focus-visible,
+  .red-button:focus-visible:where(:enabled) {
+    border: 1px solid var(--accent);
+    background-color: var(--accent);
+    color: var(--accent-text);
+    padding: 0.5rem 0.9rem;
+    text-decoration: none;
+    line-height: normal;
+  }
+  
+  .red-button:where(:enabled):hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    cursor: pointer;
+  }
+  
+  .red-button[aria-disabled="true"], 
+  .red-button:disabled {
+    cursor: not-allowed;
+    background-color: var(--disabled);
+    border-color: var(--disabled);
+    color: var(--text-light);
+  }
+  
+  .red-button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }

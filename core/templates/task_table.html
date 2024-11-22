@@ -15,7 +15,7 @@
             <td>{{ task.check_task|yesno:"Sim,Não" }}</td>
             <td>
                 <a class="button" href="{% url 'update-task' task.id %}"> Editar </a>
-                <a class="button" href="{% url 'delete-task' task.id %}">Apagar</a>
+                <a class="button-red" href="{% url 'delete-task' task.id %}">Excluir</a>
             </td>
         </tr>
         {% endfor %}

@@ -1,27 +1,13 @@
+{% extends 'base.html' %}
 {% load static %}
-<html lang="[pt-br]">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Apagar Tarefa</title>
-</head>
-<header>
-    <h1> Deletar Tarefa</h1>
-</header>
-
-<body>
-    <main>
-        <form method="POST" action="">
-            {% csrf_token %}
-            <p> Você tem certeza que gostaria de apagar essa tarefa? - {{ task }} </p>
-            <input type="submit" value="Apagar">
-            <a class="button" href="{% url 'index' %}">Cancelar</a> 
-        </form>
-        
-        {% include 'task_table.html' %}
-        
-    </main>
-</body>
-
-</html>
+{% block content%}
+<h3>Exluir tarefa</h3>
+<form method="POST" action="">
+    {% csrf_token %}
+    <p> Você tem certeza que gostaria de apagar essa tarefa? </p>
+     <p><b> {{ task }}</b></p>
+    <input type="submit" value="Apagar">
+    <a class="button-red" href="{% url 'index' %}">Cancelar</a> 
+</form>
+{% include 'task_table.html' %}
+{% endblock %}

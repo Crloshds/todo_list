@@ -1,31 +1,12 @@
+{% extends 'base.html' %}
 {% load static %}
-<html lang="[pt-br]">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Editar Tarefa</title>
-</head>
-<header>
-    <h1> Editar tarefa </h1>
-</header>
-
-<body>
-    <main>
-        <form method="POST" action="">
-    
-            {% csrf_token %}
-        
-            {{form}}
-        
-            <input class="button" type="submit" value="Atualizar">
-            <a class="button"  href="{% url 'index' %}">Cancelar</a> 
-        
-        </form>
-        
-        {% include 'task_table.html' %}
-        
-    </main>
-</body>
-
-</html>
+{% block content%}
+<h3>Editar tarefa</h3>
+<form method="POST" action="">
+    {% csrf_token %}
+    {{ form }}
+    <input class="button" type="submit" value="Atualizar">
+    <a class="button-red"  href="{% url 'index' %}">Cancelar</a> 
+</form>
+{% include 'task_table.html' %}
+{% endblock %}
