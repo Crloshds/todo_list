@@ -1,0 +1,12 @@
+{% extends 'modal.html' %}
+
+{% block modal_content %}
+<div>
+    <h3>Tem certeza que deseja excluir esta tarefa?</h3>
+    <form hx-post="{% url 'delete_task' task.id %}" hx-target="#task-table" hx-swap="outerHTML" method="POST">
+        {% csrf_token %}
+        <button type="submit">Sim</button>
+        <button type="button" hx-get="/" class="button-red">Cancelar</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+<form 
+    id="task-form"
+    hx-post="{% url 'create_task' %}" 
+    hx-target="#task-table" 
+    hx-swap="outerHTML" 
+    method="POST">
+    {% csrf_token %}
+    <h3>Adicionar terefa</h3>
+    {{ form.title }}
+    <input class="button" type="submit" value="Adicionar">
+</form>
